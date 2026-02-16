@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test für Lektion 1 und 2 - Sistema Autoevaluable</title>
-    <!-- Importar fuente agradable -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -98,7 +97,7 @@
         }
         input.answer-input:focus { outline: none; border-bottom-color: var(--accent); }
 
-        /* NUEVO DISEÑO EJERCICIO 1: CARDS */
+        /* CARDS EJERCICIO 1 */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -216,6 +215,32 @@
         
         .drop-zone.hovered { background-color: #eafaf1; border-style: dashed; }
 
+        /* Dropzone para Ejercicio 6 */
+        .ex6-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 6px;
+        }
+
+        .ex6-row strong { font-size: 1.1em; width: 100px; }
+
+        .drop-zone-single {
+            min-height: 40px;
+            min-width: 150px;
+            border: 2px dashed var(--accent);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fbfbfb;
+            padding: 5px;
+        }
+
         /* Selects del Ejercicio 4 */
         select.syntax-select {
             padding: 8px;
@@ -259,37 +284,21 @@
             font-weight: bold;
             display: none;
         }
+        #penalty-warning {
+            font-size: 0.6em;
+            color: var(--error);
+            font-weight: normal;
+            display: block;
+            margin-top: 10px;
+        }
 
         /* Feedback visual */
         .correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; }
         .incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; }
         
-        /* Modal Antitrampas */
-        .modal {
-            display: none; 
-            position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; 
-            background-color: rgba(0,0,0,0.8);
-            justify-content: center; align-items: center;
-        }
-        .modal-content {
-            background-color: #fff; padding: 30px; border-radius: 8px; text-align: center; max-width: 400px;
-            border-left: 10px solid var(--error);
-        }
-        .modal h2 { color: var(--error); }
-        
     </style>
 </head>
 <body>
-
-<!-- Modal Antitrampas -->
-<div id="cheatModal" class="modal">
-    <div class="modal-content">
-        <h2>⚠️ ALERTA DE SEGURIDAD</h2>
-        <p>Se ha detectado un cambio de pestaña o intento de copia.</p>
-        <p>Esta acción ha sido registrada. Por favor, mantente en esta ventana para completar el examen.</p>
-        <button onclick="document.getElementById('cheatModal').style.display='none'" style="padding:10px 20px; cursor:pointer;">Entendido</button>
-    </div>
-</div>
 
 <div class="container">
     <header>
@@ -297,175 +306,44 @@
         <h2>(46 Punkte gesamt)</h2>
     </header>
 
-    <!-- EJERCICIO 1 (REDISEÑADO) -->
     <div class="exercise">
         <span class="exercise-badge">10 Puntos</span>
         <h3>1. Ergänzen Sie. (Adjetivos)</h3>
         <p class="instruction">Ejemplo: <span class="example-pill">👞 ein Schuh / klein</span> ➔ <strong>ein kleiner Schuh</strong></p>
         
         <div class="cards-grid">
-            <!-- Item b -->
-            <div class="question-card">
-                <div class="card-icon">👄</div>
-                <div class="card-content">
-                    <span class="prompt">der Mund / schmal</span>
-                    <input type="text" class="answer-input ex1" data-ans="der schmale mund" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item c -->
-            <div class="question-card">
-                <div class="card-icon">👚</div>
-                <div class="card-content">
-                    <span class="prompt">eine Bluse / grau</span>
-                    <input type="text" class="answer-input ex1" data-ans="eine graue bluse" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item d -->
-            <div class="question-card">
-                <div class="card-icon">💼</div>
-                <div class="card-content">
-                    <span class="prompt">der Beruf / interessant</span>
-                    <input type="text" class="answer-input ex1" data-ans="der interessante beruf" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item e -->
-            <div class="question-card">
-                <div class="card-icon">👗</div>
-                <div class="card-content">
-                    <span class="prompt">ein Kleid / blau</span>
-                    <input type="text" class="answer-input ex1" data-ans="ein blaues kleid" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item f -->
-            <div class="question-card">
-                <div class="card-icon">👣</div>
-                <div class="card-content">
-                    <span class="prompt">die Füße / groß</span>
-                    <input type="text" class="answer-input ex1" data-ans="die großen füße" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item g -->
-            <div class="question-card">
-                <div class="card-icon">📄</div>
-                <div class="card-content">
-                    <span class="prompt">ein Zeugnis / gut</span>
-                    <input type="text" class="answer-input ex1" data-ans="ein gutes zeugnis" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item h -->
-            <div class="question-card">
-                <div class="card-icon">🎓</div>
-                <div class="card-content">
-                    <span class="prompt">die Studenten / intelligent</span>
-                    <input type="text" class="answer-input ex1" data-ans="die intelligenten studenten" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item i -->
-            <div class="question-card">
-                <div class="card-icon">🧑</div>
-                <div class="card-content">
-                    <span class="prompt">das Gesicht / hübsch</span>
-                    <input type="text" class="answer-input ex1" data-ans="das hübsche gesicht" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item j -->
-            <div class="question-card">
-                <div class="card-icon">📻</div>
-                <div class="card-content">
-                    <span class="prompt">ein Radio / billig</span>
-                    <input type="text" class="answer-input ex1" data-ans="ein billiges radio" placeholder="Escribe aquí...">
-                </div>
-            </div>
-            <!-- Item k -->
-            <div class="question-card">
-                <div class="card-icon">👖</div>
-                <div class="card-content">
-                    <span class="prompt">die Hose / weiß</span>
-                    <input type="text" class="answer-input ex1" data-ans="die weiße hose" placeholder="Escribe aquí...">
-                </div>
-            </div>
+            <div class="question-card"><div class="card-icon">👄</div><div class="card-content"><span class="prompt">der Mund / schmal</span><input type="text" class="answer-input ex1" data-ans="der schmale mund" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">👚</div><div class="card-content"><span class="prompt">eine Bluse / grau</span><input type="text" class="answer-input ex1" data-ans="eine graue bluse" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">💼</div><div class="card-content"><span class="prompt">der Beruf / interessant</span><input type="text" class="answer-input ex1" data-ans="der interessante beruf" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">👗</div><div class="card-content"><span class="prompt">ein Kleid / blau</span><input type="text" class="answer-input ex1" data-ans="ein blaues kleid" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">👣</div><div class="card-content"><span class="prompt">die Füße / groß</span><input type="text" class="answer-input ex1" data-ans="die großen füße" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">📄</div><div class="card-content"><span class="prompt">ein Zeugnis / gut</span><input type="text" class="answer-input ex1" data-ans="ein gutes zeugnis" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">🎓</div><div class="card-content"><span class="prompt">die Studenten / intelligent</span><input type="text" class="answer-input ex1" data-ans="die intelligenten studenten" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">🧑</div><div class="card-content"><span class="prompt">das Gesicht / hübsch</span><input type="text" class="answer-input ex1" data-ans="das hübsche gesicht" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">📻</div><div class="card-content"><span class="prompt">ein Radio / billig</span><input type="text" class="answer-input ex1" data-ans="ein billiges radio" placeholder="Escribe aquí..."></div></div>
+            <div class="question-card"><div class="card-icon">👖</div><div class="card-content"><span class="prompt">die Hose / weiß</span><input type="text" class="answer-input ex1" data-ans="die weiße hose" placeholder="Escribe aquí..."></div></div>
         </div>
     </div>
 
-    <!-- EJERCICIO 2 -->
     <div class="exercise">
         <span class="exercise-badge">7 Puntos</span>
         <h3>2. Was ist richtig? (Selección)</h3>
-        
         <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
-            <!-- b -->
-            <div class="radio-group-container">
-                <strong>b)</strong> Er trägt eine _________ Krawatte.
-                <div style="margin-left: 20px;">
-                    <label class="radio-option"><input type="radio" name="ex2_b" value="schwarz"> schwarz</label>
-                    <label class="radio-option"><input type="radio" name="ex2_b" value="schwarze" data-correct="true"> schwarze</label>
-                    <label class="radio-option"><input type="radio" name="ex2_b" value="schwarzen"> schwarzen</label>
-                </div>
-            </div>
-            <!-- c -->
-            <div class="radio-group-container">
-                <strong>c)</strong> Sie trägt ein _________ Kleid.
-                <div style="margin-left: 20px;">
-                    <label class="radio-option"><input type="radio" name="ex2_c" value="roten"> roten</label>
-                    <label class="radio-option"><input type="radio" name="ex2_c" value="roter"> roter</label>
-                    <label class="radio-option"><input type="radio" name="ex2_c" value="rotes" data-correct="true"> rotes</label>
-                </div>
-            </div>
-            <!-- d -->
-            <div class="radio-group-container">
-                <strong>d)</strong> Sie hat einen _________ Kollegen.
-                <div style="margin-left: 20px;">
-                    <label class="radio-option"><input type="radio" name="ex2_d" value="netten" data-correct="true"> netten</label>
-                    <label class="radio-option"><input type="radio" name="ex2_d" value="nette"> nette</label>
-                    <label class="radio-option"><input type="radio" name="ex2_d" value="nett"> nett</label>
-                </div>
-            </div>
-            <!-- e -->
-            <div class="radio-group-container">
-                <strong>e)</strong> Sie trägt eine _________ Brille.
-                <div style="margin-left: 20px;">
-                    <label class="radio-option"><input type="radio" name="ex2_e" value="runden"> runden</label>
-                    <label class="radio-option"><input type="radio" name="ex2_e" value="rund"> rund</label>
-                    <label class="radio-option"><input type="radio" name="ex2_e" value="runde" data-correct="true"> runde</label>
-                </div>
-            </div>
-            <!-- f -->
-            <div class="radio-group-container">
-                <strong>f)</strong> Mein Vater trägt immer _________ Schuhe.
-                <div style="margin-left: 20px;">
-                    <label class="radio-option"><input type="radio" name="ex2_f" value="braunen"> braunen</label>
-                    <label class="radio-option"><input type="radio" name="ex2_f" value="braune" data-correct="true"> braune</label>
-                    <label class="radio-option"><input type="radio" name="ex2_f" value="braunes"> braunes</label>
-                </div>
-            </div>
-            <!-- g -->
-            <div class="radio-group-container">
-                <strong>g)</strong> Ich habe einen _________ Chef.
-                <div style="margin-left: 20px;">
-                    <label class="radio-option"><input type="radio" name="ex2_g" value="freundliches"> freundliches</label>
-                    <label class="radio-option"><input type="radio" name="ex2_g" value="freundliche"> freundliche</label>
-                    <label class="radio-option"><input type="radio" name="ex2_g" value="freundlichen" data-correct="true"> freundlichen</label>
-                </div>
-            </div>
-            <!-- h -->
-            <div class="radio-group-container">
-                <strong>h)</strong> Peter hat eine _________ Freundin.
-                <div style="margin-left: 20px;">
-                    <label class="radio-option"><input type="radio" name="ex2_h" value="neue" data-correct="true"> neue</label>
-                    <label class="radio-option"><input type="radio" name="ex2_h" value="neues"> neues</label>
-                    <label class="radio-option"><input type="radio" name="ex2_h" value="neuen"> neuen</label>
-                </div>
-            </div>
+            <div class="radio-group-container"><strong>b)</strong> Er trägt eine _________ Krawatte. <div style="margin-left: 20px;"><label class="radio-option"><input type="radio" name="ex2_b" value="schwarz"> schwarz</label><label class="radio-option"><input type="radio" name="ex2_b" value="schwarze" data-correct="true"> schwarze</label><label class="radio-option"><input type="radio" name="ex2_b" value="schwarzen"> schwarzen</label></div></div>
+            <div class="radio-group-container"><strong>c)</strong> Sie trägt ein _________ Kleid. <div style="margin-left: 20px;"><label class="radio-option"><input type="radio" name="ex2_c" value="roten"> roten</label><label class="radio-option"><input type="radio" name="ex2_c" value="roter"> roter</label><label class="radio-option"><input type="radio" name="ex2_c" value="rotes" data-correct="true"> rotes</label></div></div>
+            <div class="radio-group-container"><strong>d)</strong> Sie hat einen _________ Kollegen. <div style="margin-left: 20px;"><label class="radio-option"><input type="radio" name="ex2_d" value="netten" data-correct="true"> netten</label><label class="radio-option"><input type="radio" name="ex2_d" value="nette"> nette</label><label class="radio-option"><input type="radio" name="ex2_d" value="nett"> nett</label></div></div>
+            <div class="radio-group-container"><strong>e)</strong> Sie trägt eine _________ Brille. <div style="margin-left: 20px;"><label class="radio-option"><input type="radio" name="ex2_e" value="runden"> runden</label><label class="radio-option"><input type="radio" name="ex2_e" value="rund"> rund</label><label class="radio-option"><input type="radio" name="ex2_e" value="runde" data-correct="true"> runde</label></div></div>
+            <div class="radio-group-container"><strong>f)</strong> Mein Vater trägt immer _________ Schuhe. <div style="margin-left: 20px;"><label class="radio-option"><input type="radio" name="ex2_f" value="braunen"> braunen</label><label class="radio-option"><input type="radio" name="ex2_f" value="braune" data-correct="true"> braune</label><label class="radio-option"><input type="radio" name="ex2_f" value="braunes"> braunes</label></div></div>
+            <div class="radio-group-container"><strong>g)</strong> Ich habe einen _________ Chef. <div style="margin-left: 20px;"><label class="radio-option"><input type="radio" name="ex2_g" value="freundliches"> freundliches</label><label class="radio-option"><input type="radio" name="ex2_g" value="freundliche"> freundliche</label><label class="radio-option"><input type="radio" name="ex2_g" value="freundlichen" data-correct="true"> freundlichen</label></div></div>
+            <div class="radio-group-container"><strong>h)</strong> Peter hat eine _________ Freundin. <div style="margin-left: 20px;"><label class="radio-option"><input type="radio" name="ex2_h" value="neue" data-correct="true"> neue</label><label class="radio-option"><input type="radio" name="ex2_h" value="neues"> neues</label><label class="radio-option"><input type="radio" name="ex2_h" value="neuen"> neuen</label></div></div>
         </div>
     </div>
 
-    <!-- EJERCICIO 3 (DRAG AND DROP) -->
     <div class="exercise">
         <span class="exercise-badge">5 Puntos</span>
         <h3>3. Ordnen Sie. (Arrastrar y Soltar)</h3>
         <p class="instruction">Arrastra las palabras para formar la oración correcta.</p>
 
-        <!-- b -->
         <div class="drag-area" id="area-b">
             <strong>b)</strong> 
             <div class="word-bank" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -481,7 +359,6 @@
             <div class="drop-zone target" data-ans="wb_1,wb_6,wb_3,wb_4,wb_5,wb_2,wb_7,wb_8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
 
-        <!-- c -->
         <div class="drag-area" id="area-c">
             <strong>c)</strong>
             <div class="word-bank" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -495,7 +372,6 @@
             <div class="drop-zone target" data-ans="wc_1,wc_2,wc_3,wc_4,wc_5,wc_6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
         
-        <!-- d -->
         <div class="drag-area" id="area-d">
             <strong>d)</strong>
             <div class="word-bank" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -510,7 +386,6 @@
             <div class="drop-zone target" data-ans="wd_1,wd_2,wd_3,wd_4,wd_5,wd_6,wd_7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
 
-        <!-- e -->
         <div class="drag-area" id="area-e">
             <strong>e)</strong>
             <div class="word-bank" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -524,8 +399,7 @@
             <div class="drop-zone target" data-ans="we_1,we_2,we_3,we_4,we_5,we_6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
         
-        <!-- f -->
-         <div class="drag-area" id="area-f">
+        <div class="drag-area" id="area-f">
             <strong>f)</strong>
             <div class="word-bank" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <span class="word-item" draggable="true" ondragstart="drag(event)" id="wf_1">Weil</span>
@@ -539,32 +413,20 @@
         </div>
     </div>
 
-    <!-- EJERCICIO 4 -->
     <div class="exercise">
         <span class="exercise-badge">5 Puntos</span>
         <h3>4. Posición del pronombre "er".</h3>
         <p class="instruction">¿El pronombre "er" va ANTES o DESPUÉS del verbo conjugado? Analiza la estructura de la oración.</p>
         
         <div style="display: grid; gap: 20px;">
-            <div>
-                <strong>b)</strong> ... Aber <select class="syntax-select" data-ans="antes"><option value="">?</option><option value="antes">er will</option><option value="despues">will er</option></select> die Schule verlassen.
-            </div>
-            <div>
-                <strong>c)</strong> ... Denn <select class="syntax-select" data-ans="antes"><option value="">?</option><option value="antes">er will</option><option value="despues">will er</option></select> lieber arbeiten.
-            </div>
-            <div>
-                <strong>d)</strong> ... Deshalb <select class="syntax-select" data-ans="despues"><option value="">?</option><option value="antes">er will</option><option value="despues">will er</option></select> die Schule verlassen.
-            </div>
-            <div>
-                <strong>e)</strong> ... Aber <select class="syntax-select" data-ans="antes"><option value="">?</option><option value="antes">er bekommt</option><option value="despues">bekommt er</option></select> kein Abschlusszeugnis.
-            </div>
-            <div>
-                <strong>f)</strong> ... dann <select class="syntax-select" data-ans="despues"><option value="">?</option><option value="antes">er hat</option><option value="despues">hat er</option></select> bessere Chancen im Beruf.
-            </div>
+            <div><strong>b)</strong> ... Aber <select class="syntax-select" data-ans="antes"><option value="">?</option><option value="antes">er will</option><option value="despues">will er</option></select> die Schule verlassen.</div>
+            <div><strong>c)</strong> ... Denn <select class="syntax-select" data-ans="antes"><option value="">?</option><option value="antes">er will</option><option value="despues">will er</option></select> lieber arbeiten.</div>
+            <div><strong>d)</strong> ... Deshalb <select class="syntax-select" data-ans="despues"><option value="">?</option><option value="antes">er will</option><option value="despues">will er</option></select> die Schule verlassen.</div>
+            <div><strong>e)</strong> ... Aber <select class="syntax-select" data-ans="antes"><option value="">?</option><option value="antes">er bekommt</option><option value="despues">bekommt er</option></select> kein Abschlusszeugnis.</div>
+            <div><strong>f)</strong> ... dann <select class="syntax-select" data-ans="despues"><option value="">?</option><option value="antes">er hat</option><option value="despues">hat er</option></select> bessere Chancen im Beruf.</div>
         </div>
     </div>
 
-    <!-- EJERCICIO 5 -->
     <div class="exercise">
         <span class="exercise-badge">10 Puntos</span>
         <h3>5. Ergänzen Sie die Form im Präteritum.</h3>
@@ -583,41 +445,40 @@
         </div>
     </div>
 
-    <!-- EJERCICIO 6 -->
     <div class="exercise">
         <span class="exercise-badge">9 Puntos</span>
         <h3>6. Wie heißt das Gegenteil?</h3>
-        <p class="instruction">Selecciona la letra correspondiente al antónimo.</p>
+        <p class="instruction">Arrastra el antónimo correcto desde el banco de palabras y suéltalo junto a su opuesto.</p>
         
-        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+            
             <div style="flex: 1; min-width: 250px;">
-                <ol type="a" start="2">
-                    <li>nett ➔ <select class="syntax-select ex6" data-ans="F"><option value="">-</option><option value="F">F</option><option value="A">A</option><option value="B">B</option></select></li>
-                    <li>klug ➔ <select class="syntax-select ex6" data-ans="G"><option value="">-</option><option value="G">G</option><option value="C">C</option><option value="D">D</option></select></li>
-                    <li>schön ➔ <select class="syntax-select ex6" data-ans="I"><option value="">-</option><option value="I">I</option><option value="E">E</option><option value="H">H</option></select></li>
-                    <li>sauber ➔ <select class="syntax-select ex6" data-ans="J"><option value="">-</option><option value="J">J</option><option value="G">G</option><option value="I">I</option></select></li>
-                    <li>alt ➔ <select class="syntax-select ex6" data-ans="H"><option value="">-</option><option value="H">H</option><option value="A">A</option><option value="F">F</option></select></li>
-                    <li>traurig ➔ <select class="syntax-select ex6" data-ans="E"><option value="">-</option><option value="E">E</option><option value="B">B</option><option value="C">C</option></select></li>
-                    <li>nervös ➔ <select class="syntax-select ex6" data-ans="B"><option value="">-</option><option value="B">B</option><option value="D">D</option><option value="J">J</option></select></li>
-                    <li>interessant ➔ <select class="syntax-select ex6" data-ans="A"><option value="">-</option><option value="A">A</option><option value="E">E</option><option value="H">H</option></select></li>
-                    <li>leicht ➔ <select class="syntax-select ex6" data-ans="D"><option value="">-</option><option value="D">D</option><option value="G">G</option><option value="I">I</option></select></li>
-                </ol>
+                <div class="ex6-row"><strong>nett</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_unsympathisch" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+                <div class="ex6-row"><strong>klug</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_dumm" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+                <div class="ex6-row"><strong>schön</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_hasslich" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+                <div class="ex6-row"><strong>sauber</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_schmutzig" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+                <div class="ex6-row"><strong>alt</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_jung" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+                <div class="ex6-row"><strong>traurig</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_lustig" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+                <div class="ex6-row"><strong>nervös</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_ruhig" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+                <div class="ex6-row"><strong>interessant</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_langweilig" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+                <div class="ex6-row"><strong>leicht</strong> ➔ <div class="drop-zone drop-zone-single target-ex6" data-ans="op_schwer" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
             </div>
-            <div style="flex: 1; background: #e8f6f3; padding: 15px; border-radius: 8px; font-size: 0.9em;">
-                <strong>Opciones:</strong>
-                <ul style="list-style: none; padding: 0;">
-                    <li>A) langweilig</li>
-                    <li>B) ruhig</li>
-                    <li>C) dünn</li>
-                    <li>D) schwer</li>
-                    <li>E) lustig</li>
-                    <li>F) unsympathisch</li>
-                    <li>G) dumm</li>
-                    <li>H) jung</li>
-                    <li>I) hässlich</li>
-                    <li>J) schmutzig</li>
-                </ul>
+
+            <div style="flex: 1;">
+                <div class="word-bank" ondrop="drop(event)" ondragover="allowDrop(event)" style="align-content: flex-start;">
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_langweilig">langweilig</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_ruhig">ruhig</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_dunn">dünn</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_schwer">schwer</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_lustig">lustig</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_unsympathisch">unsympathisch</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_dumm">dumm</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_jung">jung</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_hasslich">hässlich</span>
+                    <span class="word-item" draggable="true" ondragstart="drag(event)" id="op_schmutzig">schmutzig</span>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -629,22 +490,28 @@
 </div>
 
 <script>
-    // --- LÓGICA ANTITRAMPAS ---
+    // --- LÓGICA ANTITRAMPAS SILENCIOSA ---
+    let penalizaciones = 0;
+
+    // Bloqueo de clic derecho
     document.addEventListener('contextmenu', event => event.preventDefault());
     
+    // Sumar 1 falta si intenta copiar
     document.addEventListener('copy', event => { 
         event.preventDefault(); 
-        document.getElementById('cheatModal').style.display = 'flex';
+        penalizaciones += 1;
     });
     
+    // Sumar 1 falta si intenta pegar
     document.addEventListener('paste', event => { 
         event.preventDefault(); 
-        document.getElementById('cheatModal').style.display = 'flex';
+        penalizaciones += 1;
     });
 
+    // Sumar 1 falta por cada vez que abandona la pestaña/ventana
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'hidden') {
-            document.getElementById('cheatModal').style.display = 'flex';
+            penalizaciones += 1;
         }
     });
 
@@ -658,12 +525,15 @@
         var data = ev.dataTransfer.getData("text");
         var draggedElement = document.getElementById(data);
         
-        // Permitir soltar en Dropzone o volver al Banco
-        if (ev.target.classList.contains('drop-zone') || ev.target.classList.contains('word-bank')) {
-            ev.target.appendChild(draggedElement);
-        } else if (ev.target.classList.contains('word-item')) {
-            // Si suelta sobre otra palabra, añadir al padre de esa palabra
-            ev.target.parentElement.appendChild(draggedElement);
+        let dropTarget = ev.target;
+
+        if (dropTarget.classList.contains('drop-zone') || dropTarget.classList.contains('word-bank')) {
+            // Regla opcional para Ex6: Permitir un solo elemento en las cajas, 
+            // pero si tiran varios, la evaluación solo leerá el primero.
+            dropTarget.appendChild(draggedElement);
+        } else if (dropTarget.classList.contains('word-item')) {
+            // Si lo suelta encima de otra palabra, lo manda a la caja de esa palabra
+            dropTarget.parentElement.appendChild(draggedElement);
         }
     }
 
@@ -672,11 +542,10 @@
         let score = 0;
         let total = 46;
 
-        // 1. Text Inputs (Ex 1 & 5) - Normalización simple
+        // 1. Text Inputs (Ex 1 & 5)
         document.querySelectorAll('.answer-input').forEach(input => {
             let correct = input.getAttribute('data-ans').toLowerCase();
             let userAns = input.value.trim().toLowerCase();
-            // Verificacion basica (ignorando mayus/minus)
             if(userAns === correct) {
                 score++;
                 input.classList.remove('incorrect-bg');
@@ -707,7 +576,6 @@
             const correctOrder = zone.getAttribute('data-ans').split(',');
             const currentIds = Array.from(zone.children).map(child => child.id);
             
-            // Comparar arrays
             const isCorrect = JSON.stringify(correctOrder) === JSON.stringify(currentIds);
             
             if(isCorrect) {
@@ -720,8 +588,8 @@
             }
         });
 
-        // 4. Selects (Ex 4 & 6)
-        document.querySelectorAll('select').forEach(select => {
+        // 4. Selects (Ex 4)
+        document.querySelectorAll('.syntax-select').forEach(select => {
             if(select.value === select.getAttribute('data-ans')) {
                 score++;
                 select.style.borderColor = '#27ae60';
@@ -732,13 +600,38 @@
             }
         });
 
+        // 5. Drag & Drop Individual (Ex 6)
+        document.querySelectorAll('.target-ex6').forEach(zone => {
+            const correctAnswerId = zone.getAttribute('data-ans');
+            
+            // Verificamos si tiene un elemento dentro y si su ID coincide
+            if(zone.firstElementChild && zone.firstElementChild.id === correctAnswerId) {
+                score++;
+                zone.style.borderColor = '#27ae60';
+                zone.style.backgroundColor = '#d4edda';
+            } else {
+                zone.style.borderColor = '#c0392b';
+                zone.style.backgroundColor = '#f8d7da';
+            }
+        });
+
+        // Cálculo Final aplicando penalizaciones
+        let finalScore = score - penalizaciones;
+        if (finalScore < 0) finalScore = 0; // Evitar puntuaciones negativas extremas
+
         // Mostrar Resultado
         const display = document.getElementById('result-display');
         display.style.display = 'block';
-        display.innerHTML = `Tu Calificación: ${score} / ${total}`;
-        display.style.color = score >= 23 ? 'var(--success)' : 'var(--error)';
         
-        // Scroll al resultado
+        let penaltyMessage = "";
+        if (penalizaciones > 0) {
+            penaltyMessage = `<span id="penalty-warning">Se han restado ${penalizaciones} puntos de tu calificación por cambiar de pestaña o usar el portapapeles.</span>`;
+        }
+
+        display.innerHTML = `Tu Calificación: ${finalScore} / ${total} <br> ${penaltyMessage}`;
+        display.style.color = finalScore >= 23 ? 'var(--success)' : 'var(--error)';
+        
+        // Hacer Scroll al resultado final
         display.scrollIntoView({behavior: "smooth"});
     }
 </script>
