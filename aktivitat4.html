@@ -252,7 +252,7 @@
             background: white;
         }
 
-        .custom-radio:hover {
+        .custom-radio:hover:not(.disabled-radio) {
             border-color: #93c5fd;
             background: #f8fafc;
         }
@@ -297,6 +297,65 @@
             box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
         }
 
+        /* --- FEEDBACK STYLES --- */
+        .custom-radio.correct-answer {
+            border-color: var(--success) !important;
+            background: #ecfdf5 !important;
+        }
+        .custom-radio.correct-answer .radio-text {
+            color: #065f46 !important;
+        }
+        .custom-radio.correct-answer .radio-mark {
+            border-color: var(--success) !important;
+            background: var(--success) !important;
+        }
+
+        .custom-radio.wrong-answer {
+            border-color: var(--danger) !important;
+            background: #fef2f2 !important;
+        }
+        .custom-radio.wrong-answer .radio-text {
+            color: #991b1b !important;
+        }
+        .custom-radio.wrong-answer .radio-mark {
+            border-color: var(--danger) !important;
+            background: var(--danger) !important;
+        }
+
+        .disabled-radio {
+            cursor: not-allowed !important;
+            opacity: 0.8;
+        }
+
+        .inline-input.correct-answer {
+            border-bottom-color: var(--success) !important;
+            color: var(--success) !important;
+            background: #ecfdf5;
+        }
+        .inline-input.wrong-answer {
+            border-bottom-color: var(--danger) !important;
+            color: var(--danger) !important;
+            background: #fef2f2;
+            text-decoration: line-through;
+        }
+        .correction-text {
+            display: inline-block;
+            color: var(--success);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-left: 5px;
+            background: #ecfdf5;
+            padding: 2px 8px;
+            border-radius: 6px;
+            border: 1px solid #a7f3d0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* --- DIALOGUE / CHAT EXERCISE 2 --- */
         .word-bank {
             display: flex;
@@ -336,6 +395,7 @@
             padding: 10px 15px;
             border-radius: 8px;
             background: #f8fafc;
+            flex-wrap: wrap; /* Helps when correct text appears */
         }
 
         .character {
@@ -351,6 +411,10 @@
         .char-aschenputtel { color: #3b82f6; border-color: #3b82f6; }
         .char-gerdi { color: #10b981; border-color: #10b981; }
         .char-schneewittchen { color: #f43f5e; border-color: #f43f5e; }
+
+        .chat-text {
+            flex: 1;
+        }
 
         .inline-input {
             border: none;
@@ -368,7 +432,7 @@
             outline: none;
         }
 
-        .inline-input:focus {
+        .inline-input:focus:not(:read-only) {
             border-bottom: 2px solid var(--primary);
             background: var(--primary-light);
         }
@@ -620,7 +684,7 @@
                 </div>
 
                 <div class="thematic-image">
-                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Bosque oscuro y misterioso">
                     <figcaption>Gretel gibt der Hexe einen Stoß, als sie ihren Kopf in den Backofen steckt.</figcaption>
                 </div>
 
@@ -794,7 +858,7 @@
                 </div>
 
                 <div class="question-block">
-                    <div class="question-text">07. Die Kinder glauben, __________ er ihnen diese Chance schuldig ist (he owes them this chance).</div>
+                    <div class="question-text">07. Die Kinder glauben, __________ er ihnen diese Chance schuldig ist (se merece esta oportunidad).</div>
                     <div class="options-grid">
                         <label class="custom-radio">
                             <input type="radio" name="q7" value="warum" class="trackable">
@@ -842,7 +906,7 @@
                 </div>
 
                 <div class="question-block">
-                    <div class="question-text">10. Gretel fragt ihn, __________ er bereit ist (willing), einige neue Gerichte auszuprobieren.</div>
+                    <div class="question-text">10. Gretel fragt ihn, __________ er bereit ist (está listo), einige neue Gerichte auszuprobieren.</div>
                     <div class="options-grid">
                         <label class="custom-radio">
                             <input type="radio" name="q10" value="ob" class="trackable">
@@ -1028,25 +1092,75 @@
         function evaluarRespuestas() {
             let correctas = 0;
 
+            // Limpiar feedback anterior
+            document.querySelectorAll('.custom-radio').forEach(el => {
+                el.classList.remove('correct-answer', 'wrong-answer', 'disabled-radio');
+                el.querySelector('input').disabled = false;
+            });
+            document.querySelectorAll('.inline-input').forEach(el => {
+                el.classList.remove('correct-answer', 'wrong-answer');
+                el.readOnly = false;
+            });
+            document.querySelectorAll('.correction-text').forEach(el => el.remove());
+
             // Validar Ejercicio 1 (Radios)
             for(let i=1; i<=10; i++) {
                 let radios = document.getElementsByName('q'+i);
+                let answered = false;
+                
                 for(let radio of radios) {
-                    if(radio.checked && radio.value === answers['q'+i]) {
-                        correctas++;
+                    let label = radio.closest('.custom-radio');
+                    
+                    if(radio.checked) {
+                        answered = true;
+                        if(radio.value === answers['q'+i]) {
+                            correctas++;
+                            label.classList.add('correct-answer');
+                        } else {
+                            label.classList.add('wrong-answer');
+                        }
+                    } else if (radio.value === answers['q'+i] && document.querySelector(`input[name="q${i}"]:checked`)) {
+                        // Resalta la correcta si el usuario eligió la incorrecta
+                        label.classList.add('correct-answer');
+                    }
+                    
+                    // Deshabilitar radio para evitar cambios post-evaluación
+                    radio.disabled = true;
+                    label.classList.add('disabled-radio');
+                }
+                
+                // Si no respondió nada, igual marcamos cuál era la correcta
+                if (!answered) {
+                    for(let radio of radios) {
+                        if(radio.value === answers['q'+i]) {
+                            radio.closest('.custom-radio').classList.add('correct-answer');
+                        }
                     }
                 }
             }
 
             // Validar Ejercicio 2 (Inputs texto)
             for(let i=1; i<=12; i++) {
-                let inputVal = document.getElementById('fb'+i).value.trim().toLowerCase();
+                let inputElem = document.getElementById('fb'+i);
+                let inputVal = inputElem.value.trim().toLowerCase();
                 let correctAns = answers['fb'+i].toLowerCase().replace("_", " ");
                 
-                // Aceptar alternativas válidas
+                // Aceptar alternativas válidas (ej: weil / da)
                 if(inputVal === correctAns || (i===8 && inputVal==='weil') || (i===10 && inputVal==='wenn') || (i===12 && inputVal==='da')) {
                     correctas++;
+                    inputElem.classList.add('correct-answer');
+                } else {
+                    inputElem.classList.add('wrong-answer');
+                    
+                    // Insertar la respuesta correcta a un lado
+                    let correction = document.createElement('span');
+                    correction.className = 'correction-text';
+                    correction.textContent = answers['fb'+i].replace("_", " ");
+                    inputElem.parentNode.insertBefore(correction, inputElem.nextSibling);
                 }
+                
+                // Hacer el input de solo lectura
+                inputElem.readOnly = true;
             }
 
             // Cálculo de tiempos
