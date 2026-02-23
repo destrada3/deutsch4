@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subordinierende Konjunktionen - Ejercicios</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 { color: #2c3e50; }
+        .theory-section {
+            background-color: #eaf2f8;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th { background-color: #f2f2f2; }
+        .exercise-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        .question { margin-bottom: 15px; }
+        .options { margin-left: 20px; }
+        .word-bank {
+            background: #fff3cd;
+            padding: 15px;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            word-spacing: 15px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 120px;
+            text-align: center;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #219150; }
+        
+        /* Modal Styles */
+        #result-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .progress-bar {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 25px;
+            background: #27ae60;
+            width: 0%;
+            transition: width 1s ease-in-out;
+        }
+        .verification-box {
+            border: 2px dashed #34495e;
+            padding: 15px;
+            margin: 20px 0;
+            background: #f8f9fa;
+            font-family: monospace;
+            font-size: 24px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .cite { font-size: 0.8em; color: #7f8c8d; vertical-align: super; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Subordinierende Konjunktionen (Conjunciones Subordinantes)</h1>
+    
+    <div class="theory-section">
+        <p>Las conjunciones subordinantes unen cláusulas desiguales: una independiente y otra dependiente. <span class="cite"></span></p>
+        
+        <table>
+            <tr><td>Der Vater musste seine Kinder wegschicken, weil er eine selbstsüchtige, zweite Frau hatte.</td><td>El padre tuvo que alejar a sus hijos porque tenía una segunda esposa egoísta.</td></tr>
+            <tr><td>Damit sie mehr Essen für sich selbst haben könnten, bringen die Eltern die Kinder tief in den Wald.</td><td>Para que ellos pudieran tener más comida para sí mismos, los padres se llevan a los niños a lo más profundo del bosque.</td></tr>
+            <tr><td>Ich hätte diese Frau rausgeschmissen, wenn ich zwischen meinen Kindern und ihr hätte wählen müssen.</td><td>Habría echado a esa mujer si tuviera que haber elegido entre mis hijos y ella.</td></tr>
+            <tr><td>Obwohl die Geschichte ihr gewöhnliches Happy End hat, finde ich den Vater recht doof.</td><td>Aunque la historia tiene su habitual final feliz, el padre me parece bastante tonto.</td></tr>
+        </table>
+        <p class="cite"></p>
+
+        <p>Aunque existen varias conjunciones subordinantes más, éstas son las más utilizadas: <span class="cite"></span></p>
+        <table>
+            <tr><td>als ob ... => como si</td><td>obwohl => aunque</td></tr>
+            <tr><td>bevor => antes</td><td>ohne dass ... => sin que</td></tr>
+            <tr><td>bis => ante (hasta)</td><td>seitdem => desde ahí</td></tr>
+            <tr><td>da => porque, ahí</td><td>so dass ... => de forma que</td></tr>
+            <tr><td>damit => para que</td><td>sobald => tan pronto</td></tr>
+            <tr><td>dass => que</td><td>solange => mientras</td></tr>
+            <tr><td>nachdem => después de</td><td>während => durante</td></tr>
+            <tr><td>ob => si</td><td>weil => porque</td></tr>
+        </table>
+        <p class="cite"></p>
+
+        <h3>Otros grupos frecuentes <span class="cite"></span></h3>
+        <p><strong>01. Palabras interrogativas:</strong> pueden utilizarse en frases en las que una de las cláusulas era originalmente una pregunta. <span class="cite"></span><br>
+        was (qué) wer (quién) wie (cómo) wo (dónde) warum (por qué, porqué) usw. <span class="cite"></span></p>
+        
+        <table>
+            <tr><td>Wir finden wahrscheinlich nie heraus, wie viele andere Kinder die Hexe in ihrem Leben gegessen hat.</td><td>Probablemente nunca sabremos a cuántos niños más se comió la bruja en su vida.</td></tr>
+            <tr><td>Und warum sie so viel Geld in ihrem Häuschen hat, kann sie auch nicht mehr sagen.</td><td>Y porqué tiene tanto dinero en su casita, tampoco puede decir.</td></tr>
+        </table>
+        <p class="cite"></p>
+
+        <p>Estas palabras interrogativas también aparecen con frecuencia como conjunciones después de ciertas frases con verbos, por ejemplo, wissen, fragen, sagen, verstehen (entre otros). <span class="cite"></span></p>
+        <table>
+            <tr><td>Ich weiß, wo die Hexe wohnt.</td><td>Yo sé dónde vive la bruja.</td></tr>
+            <tr><td>Ich weiß aber nicht, wie ich dorthin komme.</td><td>Pero no sé, cómo llegar hasta ahí.</td></tr>
+            <tr><td>Wer weiß, warum sie Kinder essen wollte.</td><td>Quién sabe, por qué ella quería comer niños.</td></tr>
+            <tr><td>Ich frage (mich), warum sie keine Vegetarierin wurde!</td><td>Me pregunto, por qué no se volvió vegetariana.</td></tr>
+            <tr><td>Wir verstehen nicht, was die Moral der Geschichte ist.</td><td>No entendemos, cuál es la moraleja de la historia.</td></tr>
+        </table>
+        <p class="cite"></p>
+
+        <p><strong>02. als, wenn, wann:</strong> En español existe una palabra para todas ellas, a saber, cuando. <span class="cite"></span> En alemán, sin embargo, estas tres palabras se utilizan en contextos diferentes. <span class="cite"></span></p>
+        <p><strong>Als:</strong> se refiere a un acontecimiento único en el pasado o a un acontecimiento único que sucede exactamente en el mismo momento que otro. <span class="cite"></span></p>
+        <table>
+            <tr><td>Die Kinder waren noch wach, als die Stiefmutter dem Vater ihren schrecklichen Plan beschreibt.</td><td>Los niños aún estaban despiertos cuando la madrastra describió su terrible plan al padre.</td></tr>
+            <tr><td>Gretel gibt der Hexe einen Stoß, als sie ihren Kopf in den Backofen steckt.</td><td>Gretel le da un empujón a la bruja cuando ella metía la cabeza en el horno.</td></tr>
+        </table>
+        <p class="cite"></p>
+
+        <p><strong>Wenn / Immer wenn:</strong> se refiere a instancias que pueden suceder o sucedieron repetidamente o eventos que están sucediendo en el presente o sucederán en el futuro. <span class="cite"></span> También tiene el significado de 'si' como en un condicional (si quieres...). <span class="cite"></span></p>
+        <table>
+            <tr><td>Immer wenn die Hexe wissen wollte, ob Hänsel genug zugenommen hat, hat Hänsel ihr statt seines Fingers immer nur ein Knöchlein gereicht.</td><td>Cada vez que la bruja quería saber si Hansel había engordado lo suficiente, Hansel se limitaba a darle un huesito en lugar del dedo.</td></tr>
+            <tr><td>Wenn ihr die Übung macht, findet ihr heraus, was Hänsel und Gretel heutzutage machen.</td><td>Si hacen el ejercicio, descubrirán qué hacen Hansel y Gretel hoy en día.</td></tr>
+        </table>
+        <p class="cite"></p>
+
+        <p><strong>Wann:</strong> sólo se utiliza en preguntas y en preguntas indirectas. <span class="cite"></span> Como conjunción, siempre está en una pregunta indirecta, a menudo con una frase introductoria como 'Ich weiß nicht ...'. <span class="cite"></span></p>
+        <table>
+            <tr><td>Die Kinder fragen ihren Vater, wann sie nach Hause kommen dürfen.</td><td>Los niños preguntan a su padre cuándo podrán volver a casa.</td></tr>
+            <tr><td>Sie möchten auch wissen, wann sie die Hexe verlassen dürfen, aber die Hexe meint natürlich, dass die Kinder ihr nie entkommen werden!</td><td>También quieren saber cuándo podrán dejar a la bruja, pero, por supuesto, ¡la bruja piensa que los niños nunca escaparán de ella!</td></tr>
+        </table>
+        <p class="cite"></p>
+
+        <h3>Orden de las palabras con las conjunciones subordinantes <span class="cite"></span></h3>
+        <p>Hay dos tipos de orden de palabras que debes ver con las conjunciones subordinantes: <span class="cite"></span></p>
+        <p><strong>01. Cláusula independiente primero, cláusula dependiente después.</strong> En este caso, el verbo conjugado en la oración independiente está en segunda posición, mientras que el verbo conjugado en la oración dependiente va al final de esa oración. <span class="cite"></span></p>
+        <table><tr><td>Gretel stößt die Hexe in den Backofen, damit sie ihren Bruder retten kann.</td><td>Gretel empuja a la bruja al horno para poder salvar a su hermano.</td></tr></table>
+        <p class="cite"></p>
+
+        <p><strong>02. Cláusula dependiente primero, cláusula independiente después.</strong> En este caso, el verbo conjugado en la cláusula dependiente todavía va al final de esa cláusula, pero el verbo conjugado en la cláusula independiente viene 'primero' (en realidad todavía está en segunda posición, porque toda la cláusula dependiente llena el Vorfeld). <span class="cite"></span></p>
+        <table>
+            <tr><td>Weil ihre Stiefmutter gestorben ist, dürfen Hänsel und Gretel zu Hause bleiben.</td><td>Como su madrastra había muerto, Hansel y Gretel pueden quedarse en casa.</td></tr>
+            <tr><td>Wie ein Vater seine Kinder wegschicken kann, um eine zweite Frau glücklich zu machen, werde ich nie verstehen.</td><td>Cómo un padre puede enviar a sus hijos lejos para hacer feliz a una segunda esposa, nunca lo entenderé.</td></tr>
+        </table>
+        <p class="cite"></p>
+    </div>
+
+    <form id="quiz-form">
+        <div class="exercise-section" id="ubung1">
+            <h2>Übung 1 <span class="cite"></span></h2>
+            <p>¿Qué conjunción subordinante se ajusta mejor a la frase? Haz clic en la correcta y descubre en qué andan hoy Hänsel y Gretel. <span class="cite"></span></p>
+            
+            <div class="question">
+                <p>01. Die Kinder gehen nach Hause und sind sehr froh, ________ sie sehr reich sind. <span class="cite"></span></p>
+                <label><input type="radio" name="q1" value="weil" class="trackable"> a. weil <span class="cite"></span></label>
+                <label><input type="radio" name="q1" value="ob" class="trackable"> b. ob <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>02. __________ sich keine Kinder verlieren, bauen sie einen Pfad von ihrem Haus zum Hexenhaus. <span class="cite"></span></p>
+                <label><input type="radio" name="q2" value="Obwohl" class="trackable"> a. Obwohl <span class="cite"></span></label>
+                <label><input type="radio" name="q2" value="Damit" class="trackable"> b. Damit <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>03. Zuerst wissen sie nicht, __________ sie mit ihrem Geld machen sollen. <span class="cite"></span></p>
+                <label><input type="radio" name="q3" value="wer" class="trackable"> a. wer <span class="cite"></span></label>
+                <label><input type="radio" name="q3" value="was" class="trackable"> b. was <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>04. __________ sie mit ihrem Vater wieder zusammen sind, sind sie glücklich. <span class="cite"></span></p>
+                <label><input type="radio" name="q4" value="Sobald" class="trackable"> a. Sobald <span class="cite"></span></label>
+                <label><input type="radio" name="q4" value="Solange" class="trackable"> b. Solange <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>05. __________ sie aber 100 Jahre mit ihm zu Hause verbringen, sehnen sie sich nach einem modernen Leben. <span class="cite"></span></p>
+                <label><input type="radio" name="q5" value="Nachdem" class="trackable"> a. Nachdem <span class="cite"></span></label>
+                <label><input type="radio" name="q5" value="Bevor" class="trackable"> b. Bevor <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>06. Sie verkaufen das Haus, __________ sie es dem Vater sagen. <span class="cite"></span></p>
+                <label><input type="radio" name="q6" value="ohne dass" class="trackable"> a. ohne dass <span class="cite"></span></label>
+                <label><input type="radio" name="q6" value="während" class="trackable"> b. während <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>07. Die Kinder glauben, __________ er ihnen diese Chance schuldig ist. <span class="cite"></span></p>
+                <label><input type="radio" name="q7" value="warum" class="trackable"> a. warum <span class="cite"></span></label>
+                <label><input type="radio" name="q7" value="dass" class="trackable"> b. dass <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>08. __________ sie in ihre neue Wohnung einziehen, kaufen sie einen neuen Kühlschrank, neue Möbel und eine tolle Stereoanlage. <span class="cite"></span></p>
+                <label><input type="radio" name="q8" value="Als" class="trackable"> a. Als <span class="cite"></span></label>
+                <label><input type="radio" name="q8" value="wenn" class="trackable"> b. wenn <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>09. Leider kann Hänsel nur sehr wenig essen, und er hungert, __________ er fast stirbt! <span class="cite"></span></p>
+                <label><input type="radio" name="q9" value="solange" class="trackable"> a. solange <span class="cite"></span></label>
+                <label><input type="radio" name="q9" value="bis" class="trackable"> b. bis <span class="cite"></span></label>
+            </div>
+            <div class="question">
+                <p>10. Gretel fragt ihn, __________ er bereit ist, einige neue Gerichte auszuprobieren. <span class="cite"></span></p>
+                <label><input type="radio" name="q10" value="ob" class="trackable"> a. ob <span class="cite"></span></label>
+                <label><input type="radio" name="q10" value="obwohl" class="trackable"> b. obwohl <span class="cite"></span></label>
+            </div>
+        </div>
+
+        <div class="exercise-section" id="ubung2">
+            <h2>Übung 2 <span class="cite"></span></h2>
+            <p>Gretel no arriesgó su vida para ver a su hermano consumirse... En una sesión de terapia, le aconsejan qué hacer. <span class="cite"></span><br>
+            Rellena los espacios en blanco con una conjunción subordinante del banco de palabras para que las frases tengan sentido. <span class="cite"></span></p>
+            
+            <div class="word-bank">
+                wie_viele | da | bevor | obwohl | wie | warum | wen | was | als | dass | solange | weil <span class="cite"></span>
+            </div>
+
+            <p>01. Gretel: Ich weiß nicht, <input type="text" id="fb1" class="trackable" autocomplete="off"> ich tun soll! Hänsel wird verhungern! <span class="cite"></span></p>
+            <p>02. Aschenputtel: Hat er dir schon gesagt, <input type="text" id="fb2" class="trackable" autocomplete="off"> er nicht essen will oder kann? <span class="cite"></span></p>
+            <p>03. Gretel: Ja, aber er weiß es auch nicht. Ich kann dir nicht sagen, <input type="text" id="fb3" class="trackable" autocomplete="off"> verschiedene Gerichte ich schon gekocht habe: Italienisch, Japanisch, alles Mögliche! <span class="cite"></span></p>
+            <p>04. Gerdi: Hat er genug gegessen, <input type="text" id="fb4" class="trackable" autocomplete="off"> ihr bei der Hexe wart? <span class="cite"></span></p>
+            <p>05. Gretel: Natürlich nicht, du weißt doch, <input type="text" id="fb5" class="trackable" autocomplete="off"> wir damals nicht genug zu essen hatten! <span class="cite"></span></p>
+            <p>06. Aschenputtel: <input type="text" id="fb6" class="trackable" autocomplete="off"> das Essen für ihn eindeutig traumatisch ist, muss er doch immer noch essen, um am Leben zu bleiben! <span class="cite"></span></p>
+            <p>07. Schneewittchen: Was habt ihr gegessen, <input type="text" id="fb7" class="trackable" autocomplete="off"> ihr bei der Hexe wart? <span class="cite"></span></p>
+            <p>08. Gretel: Tolle Sachen, muss ich ehrlich sagen! <input type="text" id="fb8" class="trackable" autocomplete="off"> die Hexe ihn fett machen wollte, musste ich ihm die besten Speisen zubereiten. <span class="cite"></span></p>
+            <p>09. Gerdi: Ach, ich weiß, <input type="text" id="fb9" class="trackable" autocomplete="off"> du ihm helfen kannst! <span class="cite"></span></p>
+            <p>10. Aschenputtel: Ich auch! <input type="text" id="fb10" class="trackable" autocomplete="off"> du sein Essen kochst, isst er nicht!!!! <span class="cite"></span></p>
+            <p>11. Gretel: Oh nein! Er kann nicht essen, <input type="text" id="fb11" class="trackable" autocomplete="off"> ich bei der Hexe die Köchin war! Mein Kochen traumatisiert ihn! <span class="cite"></span></p>
+            <p>12. Gerdi: Aber keine Sorge! Ihr seid super reich, oder? Und <input type="text" id="fb12" class="trackable" autocomplete="off"> ihr reich seid, könnt ihr jeden Tag etwas vom Restaurant bestellen! <span class="cite"></span></p>
+        </div>
+
+        <button type="button" onclick="evaluarRespuestas()">Evaluar Respuestas</button>
+    </form>
+</div>
+
+<div id="result-modal">
+    <div class="modal-content">
+        <h2>🎉 ¡Evaluación Completada!</h2>
+        <h1 id="score-percentage">0%</h1>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        
+        <div class="verification-box">
+            Código de Verificación<br>
+            <span id="verification-code">000-0000</span>
+        </div>
+        
+        <p>Respuestas Correctas: <span id="correct-count">0</span>/22</p>
+        <p style="font-size: 12px; color: #7f8c8d; margin-top:20px;">Toma un screenshot de esta pantalla y descarga tu comprobante.</p>
+        
+        <button type="button" style="background:#3498db; margin-top:15px;" onclick="descargarComprobante()">Descargar Archivo .txt</button>
+        <button type="button" style="background:#e74c3c; margin-top:10px;" onclick="document.getElementById('result-modal').style.display='none'">Cerrar</button>
+    </div>
+</div>
+
+<script>
+    // --- VARIABLES DEL SISTEMA ANTITRAMPAS ---
+    let integrityData = {
+        pasteEvents: 0,
+        focusChanges: 0,
+        keyStrokes: 0,
+        backspaces: 0,
+        rapidFillCount: 0,
+        startTime: Date.now(),
+        lastInputTime: Date.now(),
+        sequence: [],
+        flags: [],
+        humanScore: 100,
+        riskLevel: 'low',
+        totalAnswers: 22
+    };
+
+    // Respuestas correctas
+    const answers = {
+        q1: 'weil', q2: 'Damit', q3: 'was', q4: 'Solange', q5: 'Nachdem', 
+        q6: 'ohne dass', q7: 'dass', q8: 'Als', q9: 'bis', q10: 'ob',
+        fb1: 'was', fb2: 'warum', fb3: 'wie viele', fb4: 'als', fb5: 'dass', 
+        fb6: 'obwohl', fb7: 'als', fb8: 'da', fb9: 'wie', fb10: 'solange', 
+        fb11: 'weil', fb12: 'weil'
+    };
+
+    let resultStats = { correct: 0, total: 22, score: 0, finalCode: "" };
+
+    // --- LISTENERS DE INTEGRIDAD ---
+
+    // 1. Cambios de Ventana
+    window.addEventListener('blur', () => { integrityData.focusChanges++; });
+
+    // Rastrear inputs y campos de texto
+    document.querySelectorAll('.trackable').forEach((elem, index) => {
+        // 2. Eventos de pegar
+        elem.addEventListener('paste', () => { integrityData.pasteEvents++; });
+
+        elem.addEventListener('input', (e) => {
+            // Contar teclas y backspaces
+            integrityData.keyStrokes++;
+            if (e.inputType === 'deleteContentBackward') integrityData.backspaces++;
+        });
+
+        elem.addEventListener('change', () => {
+            let now = Date.now();
+            let timeDiff = now - integrityData.lastInputTime;
+            
+            // 3. Llenado rápido (< 500ms)
+            if (timeDiff < 500) integrityData.rapidFillCount++;
+            
+            // 4. Secuencia
+            if (!integrityData.sequence.includes(index)) {
+                integrityData.sequence.push(index);
+            }
+            integrityData.lastInputTime = now;
+        });
+    });
+
+    // --- FUNCIÓN DE EVALUACIÓN Y CÁLCULO DE INTEGRIDAD ---
+    function evaluarRespuestas() {
+        let form = document.getElementById('quiz-form');
+        let correctas = 0;
+
+        // Validar Ejercicio 1 (Radios)
+        for(let i=1; i<=10; i++) {
+            let radios = document.getElementsByName('q'+i);
+            for(let radio of radios) {
+                if(radio.checked && radio.value === answers['q'+i]) {
+                    correctas++;
+                }
+            }
+        }
+
+        // Validar Ejercicio 2 (Inputs texto)
+        for(let i=1; i<=12; i++) {
+            let inputVal = document.getElementById('fb'+i).value.trim().toLowerCase();
+            let correctAns = answers['fb'+i].toLowerCase().replace("_", " ");
+            
+            // Aceptar alternativas válidas
+            if(inputVal === correctAns || (i===8 && inputVal==='weil') || (i===10 && inputVal==='wenn') || (i===12 && inputVal==='da')) {
+                correctas++;
+            }
+        }
+
+        // Cálculo de tiempos
+        let totalTimeMs = Date.now() - integrityData.startTime;
+        let avgTime = totalTimeMs / integrityData.totalAnswers;
+
+        // Aplicar Penalizaciones de Integridad
+        if(integrityData.pasteEvents > 5) { integrityData.humanScore -= 25; integrityData.flags.push('excessive_paste'); }
+        if(integrityData.focusChanges > 10) { integrityData.humanScore -= 15; integrityData.flags.push('frequent_tab_switching'); }
+        if(integrityData.rapidFillCount > 8) { integrityData.humanScore -= 30; integrityData.flags.push('rapid_fill_pattern'); }
+        if(avgTime < 2000 && integrityData.sequence.length > 10) { integrityData.humanScore -= 25; integrityData.flags.push('unrealistic_speed'); }
+        
+        let backspaceRatio = integrityData.keyStrokes > 0 ? (integrityData.backspaces / integrityData.keyStrokes) : 0;
+        if(backspaceRatio < 0.02 && integrityData.keyStrokes > 15) { integrityData.humanScore -= 20; integrityData.flags.push('no_corrections'); }
+
+        // Comprobar patrón secuencial perfecto (1, 2, 3...)
+        let isPerfectSequence = true;
+        for(let i=0; i<integrityData.sequence.length; i++) {
+            if(integrityData.sequence[i] !== i) isPerfectSequence = false;
+        }
+        if(isPerfectSequence && integrityData.sequence.length > 15) {
+            integrityData.humanScore -= 15;
+            integrityData.flags.push('perfect_sequence');
+        }
+
+        // Normalizar score y asignar nivel de riesgo
+        integrityData.humanScore = Math.max(0, integrityData.humanScore);
+        
+        let riskDigit = '0';
+        if(integrityData.humanScore >= 70) { integrityData.riskLevel = 'low'; riskDigit = '0'; }
+        else if(integrityData.humanScore >= 40) { integrityData.riskLevel = 'medium'; riskDigit = '1'; }
+        else { integrityData.riskLevel = 'high'; riskDigit = '2'; }
+
+        // Generar Código de Verificación: ABC-DEFGH
+        let abc = String(integrityData.humanScore).padStart(3, '0');
+        let timestampStr = String(Date.now());
+        let efgh = timestampStr.substring(timestampStr.length - 4);
+        resultStats.finalCode = `${abc}-${riskDigit}${efgh}`;
+
+        // Mostrar Resultados Visuales
+        let scorePercent = Math.round((correctas / 22) * 100);
+        resultStats.correct = correctas;
+        resultStats.score = scorePercent;
+
+        document.getElementById('score-percentage').innerText = scorePercent + '%';
+        document.getElementById('progress-fill').style.width = scorePercent + '%';
+        document.getElementById('correct-count').innerText = correctas;
+        document.getElementById('verification-code').innerText = resultStats.finalCode;
+        
+        document.getElementById('result-modal').style.display = 'flex';
+    }
+
+    // --- GENERACIÓN DE ARCHIVO DE TEXTO ---
+    function descargarComprobante() {
+        let dateStr = new Date().toLocaleString();
+        let totalSecs = Math.round((Date.now() - integrityData.startTime) / 1000);
+        let avgTimeMs = Math.round((Date.now() - integrityData.startTime) / integrityData.totalAnswers);
+
+        let content = `
+╔════════════════════════════════════════════════════════╗
+║               RESULTADOS DE EVALUACIÓN                 ║
+╚════════════════════════════════════════════════════════╝
+
+Fecha y Hora:                 ${dateStr}
+Tema:                         Subordinierende Konjunktionen
+Calificación Obtenida:        ${resultStats.score}%
+Respuestas Correctas:         ${resultStats.correct}/${resultStats.total}
+
+Código de Verificación:       ${resultStats.finalCode}
+
+────────────────────────────────────────────────────────────────
+                    DATOS DE INTEGRIDAD (USO DOCENTE)
+────────────────────────────────────────────────────────────────
+
+Puntuación de Integridad:     ${integrityData.humanScore}/100
+Nivel de Riesgo:              ${integrityData.riskLevel}
+Tiempo Total:                 ${totalSecs} segundos
+Tiempo Promedio/Pregunta:     ${avgTimeMs} ms
+Eventos de Pegar:             ${integrityData.pasteEvents}
+Cambios de Ventana:           ${integrityData.focusChanges}
+
+Indicadores detectados:       ${integrityData.flags.length > 0 ? integrityData.flags.join(', ') : 'Ninguno'}
+
+* Documento Autogenerado por Sistema de Autoevaluación.
+`;
+        const blob = new Blob([content], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `Resultados_Konjunktionen_${new Date().getTime()}.txt`;
+        link.click();
+    }
+</script>
+
+</body>
+</html>
